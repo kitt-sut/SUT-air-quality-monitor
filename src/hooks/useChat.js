@@ -13,7 +13,7 @@ import { askGemini } from '../services/geminiService';
 
 const INITIAL_MESSAGE = Object.freeze({
   id: 'welcome',
-  text: 'สวัสดี! 👋 ฉันคือผู้ช่วย AI เรื่องคุณภาพอากาศของอาคารใน มทส. ถามอะไรเกี่ยวกับ PM2.5 ได้เลยนะ',
+  text: 'สวัสดีครับ ผมเป็นผู้ช่วย AI เรื่องคุณภาพอากาศของ มทส. สอบถามเกี่ยวกับ PM2.5 ได้ครับ',
   sender: 'ai',
   timestamp: new Date(),
 });
@@ -24,7 +24,7 @@ const makeId = () =>
     : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 
 const FALLBACK_ERROR_TEXT =
-  '⚠️ ขออภัย เกิดข้อผิดพลาดในการเชื่อมต่อ AI ลองใหม่อีกครั้ง';
+  'ขออภัยครับ เกิดข้อผิดพลาดในการเชื่อมต่อ AI กรุณาลองใหม่อีกครั้งครับ';
 
 export default function useChat({ sensorContext } = {}) {
   const [messages, setMessages] = useState(() => [INITIAL_MESSAGE]);
