@@ -1,0 +1,21 @@
+# ────────────────────────────────────────────────────────────────────
+# DEPRECATED — โปรเจกต์นี้ deploy ผ่าน Vercel แล้ว
+# Vercel จะ auto-deploy ทุก push เข้าสู่ main เอง
+# ไม่ต้องใช้ GitHub Actions อีก
+#
+# workflow นี้ถูกปิดด้วยการเปลี่ยน trigger เป็น manual-only (workflow_dispatch)
+# ถ้าจะกลับมาใช้ GitHub Pages อีกครั้ง: คืน trigger เป็น push และคืน base path
+# ใน vite.config.js เป็น '/sut-air-quality/'
+# ────────────────────────────────────────────────────────────────────
+
+name: (deprecated) GitHub Pages deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notice
+        run: echo "This workflow is deprecated. Deploys are now handled by Vercel."
