@@ -46,6 +46,11 @@ export const fetchPM25 = async (gid, sensorId, signal) => {
     throw new Error(`Invalid JSON format for ${sensorId}: ${err.message}`);
   }
 
+  // ดักจับ Error ของ API ตรงนี้ครับ
+  if (data.status === 'error') {
+    throw new Error(`Google API Error: ${data.errors[0].message}`);
+  }
+
   // ป้องกัน TypeError ในกรณีที่ Sheet ส่ง rows ว่างกลับมา (query ไม่เจอแถวที่ตรงเงื่อนไข)
   const row = data?.table?.rows?.[0];
   if (!row) {
